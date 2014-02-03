@@ -1035,3 +1035,15 @@ insert into supported_devices(device_id, device, build_id, check_property_name, 
   insert into device_address(device_id, name, value) values(186, 'remap_pfn_range', 3222353292);
   insert into device_address(device_id, name, value) values(186, 'ptmx_fops', 3238427464);
 
+insert into supported_devices(device_id, device, build_id, check_property_name, check_property_value) values(187, 'HTX21', 'JRO03C', 'ro.aa.romver', '1.25.971.1');
+  insert into device_address(device_id, name, value) values(187, 'prepare_kernel_cred', 3221910624);
+  insert into device_address(device_id, name, value) values(187, 'commit_creds', 3221909324);
+  insert into device_address(device_id, name, value) values(187, 'remap_pfn_range', 3222253252);
+  insert into device_address(device_id, name, value) values(187, 'ptmx_fops', 3234644276);
+
+insert into supported_devices(device_id, device, build_id, check_property_name, check_property_value) values(188, 'LGL22', 'JDQ39B', 'ro.lge.swversion', 'LGL2210a');
+  insert into device_address(device_id, name, value) values(188, 'prepare_kernel_cred', 3222026388);
+  insert into device_address(device_id, name, value) values(188, 'commit_creds', 3222025096);
+  insert into device_address(device_id, name, value) values(188, 'remap_pfn_range', 3222555920);
+  insert into device_address(device_id, name, value) values(188, 'vmalloc_exec', 3222610636);
+  insert into device_address(device_id, name, value) values(188, 'ptmx_fops', 3238111136);

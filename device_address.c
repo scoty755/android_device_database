@@ -897,6 +897,20 @@ static supported_device supported_devices[] = {
   },
 
   {
+    .device_id = DEVICE_LGL22_V10a,
+    .device = "LGL22",
+    .build_id = "JDQ39B",
+    .check_property_name = "ro.lge.swversion",
+    .check_property_value = "LGL2210a",
+      
+    .prepare_kernel_cred_address = 0xc00c3894,
+    .commit_creds_address = 0xc00c3388,
+    .remap_pfn_range_address = 0xc0144d10,
+    .vmalloc_exec_address = 0xc01522cc,
+    .ptmx_fops_address = 0xc101a7a0,
+  },
+    
+  {
     .device_id = DEVICE_LG_E975_V10e,
     .device = "LG-E975",
     .build_id = "JZO54K",
