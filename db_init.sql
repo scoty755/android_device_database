@@ -1047,3 +1047,10 @@ insert into supported_devices(device_id, device, build_id, check_property_name, 
   insert into device_address(device_id, name, value) values(188, 'remap_pfn_range', 3222555920);
   insert into device_address(device_id, name, value) values(188, 'vmalloc_exec', 3222610636);
   insert into device_address(device_id, name, value) values(188, 'ptmx_fops', 3238111136);
+
+insert into supported_devices(device_id, device, build_id, check_property_name, check_property_value) values(189, 'LGL23', 'JDQ39B', 'ro.lge.swversion', 'LGL2310d');
+  insert into device_address(device_id, name, value) values(188, 'prepare_kernel_cred', 3222023768);
+  insert into device_address(device_id, name, value) values(188, 'commit_creds', 3222022476);
+  insert into device_address(device_id, name, value) values(188, 'remap_pfn_range', 3222553300);
+  insert into device_address(device_id, name, value) values(188, 'vmalloc_exec', 3222608016);
+  insert into device_address(device_id, name, value) values(188, 'ptmx_fops', 3239181216);

@@ -911,6 +911,20 @@ static supported_device supported_devices[] = {
   },
     
   {
+	  .device_id = DEVICE_LGL23_V10d,
+	  .device = "LGL23",
+	  .build_id = "JDQ39B",
+	  .check_property_name = "ro.lge.swversion",
+	  .check_property_value = "LGL2310d",
+      
+	  .prepare_kernel_cred_address = 0xc00c2e58,
+	  .commit_creds_address = 0xc00c294c,
+	  .remap_pfn_range_address = 0xc01442d4,
+	  .vmalloc_exec_address = 0xc0151890,
+	  .ptmx_fops_address = 0xc111fba0,
+  },
+    
+  {
     .device_id = DEVICE_LG_E975_V10e,
     .device = "LG-E975",
     .build_id = "JZO54K",
