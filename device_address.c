@@ -911,6 +911,20 @@ static supported_device supported_devices[] = {
   },
     
   {
+	  .device_id = DEVICE_LGL22_V10b,
+	  .device = "LGL22",
+	  .build_id = "JDQ39B",
+	  .check_property_name = "ro.lge.swversion",
+	  .check_property_value = "LGL2210b",
+      
+	  .prepare_kernel_cred_address = 0xc00c3adc,
+	  .commit_creds_address = 0xc00c35d0,
+	  .remap_pfn_range_address = 0xc0145038,
+	  .vmalloc_exec_address = 0xc01525f4,
+	  .ptmx_fops_address = 0xc101a7a0,
+  },
+    
+  {
 	  .device_id = DEVICE_LGL23_V10d,
 	  .device = "LGL23",
 	  .build_id = "JDQ39B",
