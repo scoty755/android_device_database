@@ -824,6 +824,20 @@ static supported_device supported_devices[] = {
   },
 
   {
+    .device_id = DEVICE_L01F_V11k,
+    .device = "L-01F",
+    .build_id = "JDQ39B",
+    .check_property_name = "ro.lge.swversion",
+    .check_property_value = "L01F11k",
+    
+    .prepare_kernel_cred_address = 0xc00c37a8,
+    .commit_creds_address = 0xc00c329c,
+    .remap_pfn_range_address = 0xc0144c20,
+    .vmalloc_exec_address = 0xc01521dc,
+    .ptmx_fops_address = 0xc101c4d0,
+  },
+	
+  {
     .device_id = DEVICE_L02E_V10e,
     .device = "L-02E",
     .build_id = "IMM76L",
