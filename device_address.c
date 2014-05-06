@@ -661,6 +661,20 @@ static supported_device supported_devices[] = {
     },
 
   {
+	.device_id = DEVICE_HTX21_1_25_971_2,
+	.device = "HTX21",
+	.build_id = "JRO03C",
+	.check_property_name = "ro.aa.romver",
+	.check_property_value = "1.25.971.2",
+	
+	.prepare_kernel_cred_address = 0xc00a7460,
+	.commit_creds_address = 0xc00a6f4c,
+	.remap_pfn_range_address = 0xc00faec4,
+    .vmalloc_exec_address = 0xc0ccc134,
+	.ptmx_fops_address = 0xc0ccc134,
+  },
+	
+  {
     .device_id = DEVICE_IS11N_GRJ90,
     .device = "IS11N",
     .build_id = "GRJ90",
