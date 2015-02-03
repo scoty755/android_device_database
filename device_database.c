@@ -9,11 +9,11 @@
 
 #define ARRAY_SIZE(n)	(sizeof (n) / sizeof (*(n)))
 
-#define DEVICE_DATABASE_FILE            "device.db"
+#define DEVICE_DATABASE_FILE            "device.db" //データベースのファイル名
 
 static const char *device_database_file_paths[] = {
   DEVICE_DATABASE_FILE,
-  "/data/local/tmp/" DEVICE_DATABASE_FILE,
+  "/data/local/tmp/" DEVICE_DATABASE_FILE, //データベースのパス
 };
 
 #define DEVICE_ID_REGISTER_START        10000
@@ -41,6 +41,7 @@ static const char *device_database_file_paths[] = {
 
 static sqlite3 *db;
 
+/*データベースを閉じるここから*/
 static void
 close_database(void)
 {
@@ -68,7 +69,9 @@ close_database(void)
 
   //printf("database is closed.\n");
 }
+/*データベースを閉じるここまで*/
 
+/*データベース読み込みここから*/
 static bool
 init_database(void)
 {
@@ -107,7 +110,9 @@ init_database(void)
 
   return true;
 }
+/*データベース読み込みここまで*/
 
+/*SQL実行ここから*/
 static int
 execute_sql(sqlite3_stmt *st)
 {
@@ -133,8 +138,10 @@ execute_sql(sqlite3_stmt *st)
 
   return rc;
 }
+/*SQL実行ここまで*/
 
 
+/*デバイスをデータベースに新規追加ここから*/
 static device_id_t
 register_device_id(const char *property_name)
 {
@@ -222,14 +229,16 @@ register_device_id(const char *property_name)
     printf("%s(%d)\n", sqlite3_errmsg(db), sqlite3_errcode(db));
     sqlite3_finalize(st);
 
-    return DEVICE_NOT_SUPPORTED;
+    return DEVICE_NOT_SUPPORTED; //データベースにデバイスが存在しない
   }
 
   sqlite3_finalize(st);
 
   return device_id;
 }
+/*デバイスをデータベースに新規追加ここまで*/
 
+/*デバイス情報の取得ここから*/
 static device_id_t
 get_device_id(bool do_regist)
 {
@@ -320,6 +329,9 @@ detect_device(void)
   return get_device_id(false);
 }
 
+/*デバイス情報の取得ここまで*/
+
+/*新規デバイスのアドレス情報取得ここから*/
 unsigned long int
 device_get_symbol_address(device_symbol_t symbol)
 {
@@ -377,7 +389,9 @@ device_get_symbol_address(device_symbol_t symbol)
 
   return value;
 }
+/*新規デバイスのアドレス情報取得ここまで*/
 
+/*データベースへの新規デバイス追加ここから*/
 bool
 device_set_symbol_address(device_symbol_t symbol, unsigned long int address)
 {
@@ -437,7 +451,9 @@ device_set_symbol_address(device_symbol_t symbol, unsigned long int address)
 
   return true;
 }
+/*データベースへの新規デバイス追加ここまで*/
 
+/*デバイスがデータベースに存在しない場合の処理ここから*/
 void
 print_reason_device_not_supported(void)
 {
@@ -488,14 +504,15 @@ print_reason_device_not_supported(void)
 
     __system_property_get(check_name, check_property_value);
 
-    printf("%s (%s %s) is not supported.\n", device, build_id, check_property_value);
+    printf("%s (%s %s) is not supported.\n", device, build_id, check_property_value); //デバイスがデータベースに存在しない旨のメッセージ
   }
   else {
-    printf("%s (%s) is not supported.\n", device, build_id);
+    printf("%s (%s) is not supported.\n", device, build_id); //デバイスがデータベースに存在しない旨のメッセージ
   }
 
   sqlite3_finalize(st);
 }
+/*デバイスがデータベースに存在しない場合の処理ここまで*/
 
 #undef __system_property_get
 
